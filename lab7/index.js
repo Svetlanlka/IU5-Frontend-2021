@@ -64,11 +64,11 @@ function getCityWeather(city) {
         (x) => {      
             console.log("promise successed");
 
+            weather_data = x;
             console.log("got weather data | weather_main: " + weather_data['weather'][0]['main']);
             console.log("got weather data | weather_description: " + weather_data['weather'][0]['description']);
             console.log("got weather data | weather_icon: " + weather_data['weather'][0]['icon']);
             console.log("got weather data | name: " + weather_data['name']);
-            weather_data = x;
 
             weather_field.innerHTML = weather_data['weather'][0]['description'];
             // weather_pict_field.innerHTML = '<img src="img/{icon}.png">'.replace("{icon}",  weather_data['weather'][0]["icon"]);
@@ -97,8 +97,7 @@ searchButton.addEventListener('click', () => {
     getCityWeather(inputValue);
 });
 
-
-setTimeout(getCityWeather(init_city), 3000);
+getCityWeather(init_city);
 console.log("Script end");
 
 
