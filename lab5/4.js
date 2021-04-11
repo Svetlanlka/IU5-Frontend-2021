@@ -13,8 +13,26 @@
  * memozedAdd(2) -> {cache: true, result: 4}
  */
 
+const e = require("express");
+
 function memoize(func) {
-    //code here
+    let last_value;
+    return ((...args) => {
+        let new_value = args[0];
+        if (last_value == func(new_value)) {
+            last_value = func(new_value);
+            return {
+                cache: true,
+                result: last_value,  
+            } 
+        } else {
+                last_value = func(new_value);
+                return {
+                    cache: false,
+                    result: last_value,  
+                }
+            }
+        });
 }
 
 module.exports = memoize;

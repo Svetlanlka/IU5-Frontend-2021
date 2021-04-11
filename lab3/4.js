@@ -15,4 +15,5 @@ function prettySum(arr) {
     return sum * arr[arr.length - 1];
 }
 
+
 module.exports = prettySum;
