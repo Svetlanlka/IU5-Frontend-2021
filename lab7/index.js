@@ -9,25 +9,27 @@ let weather_field;      // поле с текущей погодой
 let weather_data;       // массив данных от сервера
 let weather_pict_field; // поле с картинкой
 let weather_text_field; // поле с текстом данных о погоде
+let wind = document.getElementById("wind");
+let humidity = document.getElementById("humidity");
+let pressure = document.getElementById("pressure");
 
 // сеть
 let requestBase = 'https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=metric&appid=20d168cec6dd572a4b246df42e4646e7';
 let request = new XMLHttpRequest();
 
 function getUserText(data) {
+    wind.innerHTML =  data['wind']['deg'] + 'm/c';
+    humidity.innerHTML = data['main']['humidity'];
+    pressure.innerHTML = data['main']['pressure'];
     let text;
-    text = '<p"><strong>Температура</strong> {temp}°С</p>\
-    <p>Ощущается {feels_like}°С</p>\
-    <p>мин: {temp_min}°С / макс: {temp_max}°С</p>\
-    </br>\
-    <p><strong>Давление</strong> {pressure} мм.рт.</p>\
-    <p><strong>Влажность</strong> {humidity}%</p>'
+    text = '<span">{temp}°С</span>\
+    <span>Feels {feels_like}°С</span>\
+    <div>min: {temp_min}°С / max: {temp_max}°С</div>\
+    </br>'
     .replace("{temp}", data['main']['temp'])
     .replace("{feels_like}", data['main']['feels_like'])
     .replace("{temp_min}", data['main']['temp_min'])
     .replace("{temp_max}", data['main']['temp_max'])
-    .replace("{pressure}", data['main']['pressure'])
-    .replace("{humidity}", data['main']['humidity']);
     return text;
 }
 
@@ -43,8 +45,8 @@ function getCityWeather(city) {
     //weather_pict_field.innerHTML = '<img src="img/loading.png"></img>';
     weather_text_field = document.getElementById("temperatureLabel");
     
-   let prom = new Promise((resolve, reject) => {
-        requestURL = requestBase.replace('{city}', city);
+    let prom = new Promise((resolve, reject) => {
+       requestURL = requestBase.replace('{city}', city);
         console.log("request: " + requestURL);
 
         request.open("GET", requestURL);
@@ -62,14 +64,14 @@ function getCityWeather(city) {
         (x) => {      
             console.log("promise successed");
 
-            weather_data = x;
             console.log("got weather data | weather_main: " + weather_data['weather'][0]['main']);
             console.log("got weather data | weather_description: " + weather_data['weather'][0]['description']);
             console.log("got weather data | weather_icon: " + weather_data['weather'][0]['icon']);
             console.log("got weather data | name: " + weather_data['name']);
+            weather_data = x;
 
             weather_field.innerHTML = weather_data['weather'][0]['description'];
-            weather_pict_field.innerHTML = '<img src="img/{icon}.png">'.replace("{icon}",  weather_data['weather'][0]["icon"]);
+            // weather_pict_field.innerHTML = '<img src="img/{icon}.png">'.replace("{icon}",  weather_data['weather'][0]["icon"]);
             weather_text_field.innerHTML = getUserText(weather_data);
             city_field.innerHTML = weather_data['name'];
         },
@@ -79,7 +81,7 @@ function getCityWeather(city) {
             weather_data = prev_req;
             // восстанавливаем данные, на месте которых сейчас "загрузка"
             weather_field.innerHTML = weather_data['weather'][0]['description']; 
-            weather_pict_field.innerHTML = '<img src="img/{icon}.png">'.replace("{icon}",  weather_data['weather'][0]["icon"]);
+            // weather_pict_field.innerHTML = '<img src="img/{icon}.png">'.replace("{icon}",  weather_data['weather'][0]["icon"]);
         }
     );
 }
@@ -95,8 +97,22 @@ searchButton.addEventListener('click', () => {
     getCityWeather(inputValue);
 });
 
-getCityWeather(init_city);
+
+setTimeout(getCityWeather(init_city), 3000);
 console.log("Script end");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let input_city = document.getElementById('search_city');
 // let city = document.getElementById('city_name');
@@ -122,22 +138,20 @@ console.log("Script end");
 // todate.innerHTML = d + '.' + m + '.' + y;
 
 // console.log("search begin");
-// // search_button.addEventListener('click', () => {
+// search_button.addEventListener('click', () => {
 //   console.log("click begin");
-//     let promise = fetch('https://api.openweathermap.org/data/2.5/weather?q=' + 'Москва' + '&units=metric&lang=ru&appid=20d168cec6dd572a4b246df42e4646e7')
+//     let promise = fetch('https://api.openweathermap.org/data/2.5/weather?q=' + input_city.value + '&units=metric&lang=ru&appid=20d168cec6dd572a4b246df42e4646e7')
 //         .then(response => {
-//             if (response.ok) {
-//               return response.json()
+//             if (!response.ok) {
+//                 console.log("error");
+//                 return response.json()
 //                 // er.style.display = 'block';
 //                 // base.style.display = 'none';
 //             } else {
-//               return response.json()
-              
-//                 // console.log("error");
-//                 // res.json().then(data => {
+//                 res.json().then(data => {
 //                 //         // base.style.display = 'flex';
 //                 //         // er.style.display = 'none';
-//                 //         city.innerHTML = data.name;
+//                         city.innerHTML = data.name;
 //                 //         // console.log(data);
 //                 //         // if (data.main.temp > 0) data.main.temp = '+' + data.main.temp;
 //                 //         // if (data.main.temp_max > 0) data.main.temp_max = '+' + data.main.temp_max;
@@ -147,18 +161,20 @@ console.log("Script end");
 //                 //         // mon_val.innerHTML = data.main.temp_max;
 //                 //         // mid_val.innerHTML = data.main.temp_min;
 //                 //         // console.log(wh_ico.src);
-//                 //     })
-//                 //     .catch(err => console.error(err));
+//                 })
+//                 .catch(err => console.error(err));
 //             }
 
 //         })
 //         // .catch(console.error);
 //         promise.then(data=>console.log(data)).catch(err=>console.log(err));
 //         console.log(promise);
-// // });
+// });
 
 
 // console.log("script end");
+
+
 
 /*async function getData(url) {
     return fetch(url)
