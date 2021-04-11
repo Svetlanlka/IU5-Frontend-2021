@@ -11,7 +11,7 @@
 
 <body>
     <div class="top">
-        <span class="top_name">All destroy :(</span>
+        <span class="top_name">Weather</span>
         <form class="search_container">
             <input id ="search_city" type="text" placeholder="Enter city name">
             <button id="search_button">Search</button>
@@ -25,8 +25,12 @@
                     <span id = "current_time">11.04.2021 4:34</span>
                 </div>
                 <div class="temp_info">
-                    <div id ="temperature">+9</div>
                     <div id = "temperatureLabel">Ясно</div>
+                    <div id ="temperature">+9°С</div>
+                    <div class="maxmin">
+                        <div id = "temperatureMin">min: -10°С</div>
+                        <div id = "temperatureMax">max: +10°С</div>
+                    </div>
                 </div>
             </div>
             <div class="add_info">
@@ -45,10 +49,9 @@
             </div>
         </div>
         <div id="weather_other">
-            <div>11.04.2021 9:00</div>
+            <div></div>
         </div>
     </div>
     <script src="./index.js"></script>
 </body>
-
 </html>

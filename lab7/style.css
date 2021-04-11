@@ -62,7 +62,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .weather_current_top .top_city {
@@ -76,12 +76,36 @@ body {
 
 .weather_current_top .temp_info {
     margin-left: 50px;
+    font-size: 30px;
+    display: flex;
+    color: #33095a;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items:center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:start;
+}
+
+#temperature {
     font-size: 50px;
 }
 
+#temperatureLabel {
+    font-size: 70px;
+}
+
 #cityName {
-    font-size: 100px;
+    font-size: 150px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.maxmin {
+    display: flex;
+    justify-content: space-around;
+}
+
+#temperatureMax {
+    margin-left: 20px;
 }
 
 .main #weather_other {
