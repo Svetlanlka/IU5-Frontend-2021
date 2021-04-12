@@ -2,13 +2,24 @@ body {
     padding: 0;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #002044;
+    color: #372d72;
     background-color: rgb(189, 218, 243);
+    text-shadow: 2px 2px 2px #d8fff9;
+    background: url("./img/background_body.jpg") no-repeat;
+    background-size: cover;
+}
+
+#weather_container {
+    background: url("./img/pasmurno.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 50px;
+    border-bottom: 20px solid #372d72;
 }
 
 .top {
     padding: 5px;
-    background-color: #62bae2;
+    background-color: #34bfff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +53,7 @@ body {
 
 .top #search_button:hover {
     box-shadow: none;
-    background-color: #7585df;
+    background-color: #3a51d3;
 }
 
 .main {
@@ -53,7 +64,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
-    background-color: #7585df;
+    background-color: #70abe2;
     border: 2px solid black;
     border-radius: 20px;
 }
@@ -91,7 +102,7 @@ body {
 }
 
 #temperatureLabel {
-    font-size: 70px;
+    font-size: 50px;
 }
 
 #cityName {

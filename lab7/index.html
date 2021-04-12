@@ -17,39 +17,41 @@
             <button id="search_button">Search</button>
         </div>
     </div>
-    <div class="main">
-        <div id="weather_current">
-            <div class = "weather_current_top">
-                <div class="top_city">
-                    <span id="cityName"></span>
-                    <span id = "current_time">11.04.2021 4:34</span>
-                </div>
-                <div class="temp_info">
-                    <div id = "temperatureLabel">Ясно</div>
-                    <div id ="temperature">+9°С</div>
-                    <div class="maxmin">
-                        <div id = "temperatureMin">min: -10°С</div>
-                        <div id = "temperatureMax">max: +10°С</div>
+    <div id = "weather_container">
+        <div class="main">
+            <div id="weather_current">
+                <div class = "weather_current_top">
+                    <div class="top_city">
+                        <span id="cityName"></span>
+                        <span id = "current_time">11.04.2021 4:34</span>
+                    </div>
+                    <div class="temp_info">
+                        <div id = "temperatureLabel">Ясно</div>
+                        <div id ="temperature">+9°С</div>
+                        <div class="maxmin">
+                            <div id = "temperatureMin">min: -10°С</div>
+                            <div id = "temperatureMax">max: +10°С</div>
+                        </div>
                     </div>
                 </div>
+                <div class="add_info">
+                    <span class="add_container">
+                        <span class="icon icon_wind"></span>
+                        <span id="wind">5 м/с</span>      
+                    </span>
+                    <span class="add_container">
+                        <span class="icon icon_humidity"></span>
+                        <span id="humidity">62 %</span>
+                    </span>
+                    <span class="add_container">
+                        <span class="icon icon_pressure"></span>
+                        <span id="pressure">768 мм рт.ст.</span>
+                    </span>
+                </div>
             </div>
-            <div class="add_info">
-                <span class="add_container">
-                    <span class="icon icon_wind"></span>
-                    <span id="wind">5 м/с</span>      
-                </span>
-                <span class="add_container">
-                    <span class="icon icon_humidity"></span>
-                    <span id="humidity">62 %</span>
-                </span>
-                <span class="add_container">
-                    <span class="icon icon_pressure"></span>
-                    <span id="pressure">768 мм рт.ст.</span>
-                </span>
+            <div id="weather_other">
+                <div></div>
             </div>
-        </div>
-        <div id="weather_other">
-            <div></div>
         </div>
     </div>
 </body>

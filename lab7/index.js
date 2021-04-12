@@ -9,11 +9,52 @@ let weather_min = document.getElementById("temperatureMin");
 let weather_max = document.getElementById("temperatureMax");
 let searchButton = document.getElementById('search_button');
 let searchInput = document.getElementById('search_city');
+let image = document.getElementById('weather_container');
 
 let date = new Date();
 todate.innerHTML = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear();
 
 let request_init = 'https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=metric&appid=20d168cec6dd572a4b246df42e4646e7';
+
+function ChangeWeatherBack(str) {
+    switch(str.slice(0,2)){
+        case "01":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            break;
+        case "02":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/few-clouds-sky.jpg')";
+            break;
+        case "03":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/clod.jpg')";
+            break;
+        case "04":
+            image.style.backgroundImage = "url('./img/pasmurno.jpg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/more_cloud.jpg')";
+            break;
+        case "09":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/more_rain.jpg')";
+            break;
+        case "10":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/rain.jpg')";
+            break;
+        case "11":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/thunder.jpg')";
+            break;
+        case "13":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/snow.jpg')";
+            break;      
+        case "50":
+            image.style.backgroundImage = "url('./img/clearly.jpeg')";
+            // document.getElementById("WeatherToday").style.backgroundImage = "url('imge/mist.jpg')";
+            break;
+    }
+}
 
 function addWeatherData(data) {
     console.log(data);
@@ -24,7 +65,11 @@ function addWeatherData(data) {
     weather_max.innerHTML =  'max:' + data['main']['temp_max'] + '°С';
     weather.innerHTML =   data['main']['temp'] + '°С';
     weather_field.innerHTML = data['weather'][0]['description'];
+    let str = data['weather'][0]['icon'];
+    console.log(str);
+    ChangeWeatherBack(str);
 }
+
 
 function getCityWeather(city) {
     city_field.innerText = city;
