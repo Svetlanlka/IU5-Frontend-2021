@@ -1,7 +1,3 @@
-console.log("start");
-const init_city = "Москва"
-
-let weather_data;
 let weather_field = document.getElementById("temperatureLabel");
 let weather = document.getElementById("temperature");
 let city_field = document.getElementById("cityName");
@@ -17,32 +13,29 @@ let searchInput = document.getElementById('search_city');
 let date = new Date();
 todate.innerHTML = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear();
 
-let requestBase = 'https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=metric&appid=20d168cec6dd572a4b246df42e4646e7';
-let request = new XMLHttpRequest();
+let request_init = 'https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=metric&appid=20d168cec6dd572a4b246df42e4646e7';
 
-function getUserText(data) {
-    wind.innerHTML =  data['wind']['deg'] + 'm/c';
-    humidity.innerHTML = data['main']['humidity'];
-    pressure.innerHTML = data['main']['pressure'];
+function addWeatherData(data) {
+    console.log(data);
+    wind.innerHTML =  data['wind']['speed'] + ' m/c';
+    humidity.innerHTML = data['main']['humidity'] + " %";
+    pressure.innerHTML = data['main']['pressure'] + " мм рт. сст.";
     weather_min.innerHTML = 'min:' + data['main']['temp_min'] + '°С';
     weather_max.innerHTML =  'max:' + data['main']['temp_max'] + '°С';
     weather.innerHTML =   data['main']['temp'] + '°С';
-    weather_field.innerHTML = weather_data['weather'][0]['description'];
+    weather_field.innerHTML = data['weather'][0]['description'];
 }
 
 function getCityWeather(city) {
     city_field.innerText = city;
-    let req = weather_data;
-    weather_field.innerHTML = loading;
     
     let prom = new Promise((resolve, reject) => {
-       requestURL = requestBase.replace('{city}', city);
-        console.log("request: " + requestURL);
+        requestURL = request_init.replace('{city}', city);
 
+        let request = new XMLHttpRequest();
         request.open("GET", requestURL);
         request.responseType = 'json';
         request.onload = () => {
-            console.log("response code: " + request.response.cod);
             if (request.response.cod === 200)
                 return resolve(request.response);
             return reject(request.response);
@@ -51,29 +44,19 @@ function getCityWeather(city) {
       });
 
     prom.then(
-        (x) => {      
-            weather_data = x;
-            getUserText(weather_data);
+        (data) => {      
+            addWeatherData(data);
         },
-        (x) => {
-            console.log("promise failed");
-            alert(x.message);
-            weather_data = req;
+        (data) => {
+            console.log("request error");
+            alert(data.message);
         }
     );
 }
 
-searchButton.addEventListener('click', () => {
-    let inputValue = searchInput.value;
-    city_field.innerText = inputValue;
-    init_city = inputValue;
-
-    console.log("search: " + inputValue);
-    if (inputValue === "")
-         return;
-    getCityWeather(inputValue);
-    console.log("end click");
-});
-
+let init_city = "Москва";
 getCityWeather(init_city);
-console.log("end");
+searchButton.addEventListener('click', () => {
+    let init_city = searchInput.value;
+    getCityWeather(init_city);
+});
