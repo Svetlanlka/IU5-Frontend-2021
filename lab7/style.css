@@ -1,0 +1,155 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #372d72;
+    background-color: rgb(189, 218, 243);
+    text-shadow: 2px 2px 2px #d8fff9;
+    background: url("./img/background_body.jpg") no-repeat;
+    background-size: cover;
+}
+
+#weather_container {
+    background: url("./img/pasmurno.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 50px;
+    border-bottom: 20px solid #372d72;
+}
+
+.top {
+    padding: 5px;
+    background-color: #34bfff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top .top_name {
+    color: #002044;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.top .search_container {
+    display: flex;
+    align-items: center;
+}
+
+.top #search_city {
+    background-color:#b1d4e6;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.top #search_button {
+    background: url("./img/search.png");
+    width: 100px;
+    height: 30px;
+    box-shadow: 0 0 2px 2px black;
+    background-color: #3d34c2;
+    margin-right: 15px;
+}
+
+.top #search_button:hover {
+    box-shadow: none;
+    background-color: #3a51d3;
+}
+
+.main {
+    margin: 50px 50px;
+}
+
+.main #weather_current {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    background-color: #70abe2;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.weather_current_top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.weather_current_top .top_city {
+    display: flex;
+    flex-direction: column;
+}
+
+#current_time {
+    font-size: 25px;
+}
+
+.weather_current_top .temp_info {
+    margin-left: 50px;
+    font-size: 30px;
+    display: flex;
+    color: #33095a;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items:center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:start;
+}
+
+#temperature {
+    font-size: 50px;
+}
+
+#temperatureLabel {
+    font-size: 50px;
+}
+
+#cityName {
+    font-size: 150px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.maxmin {
+    display: flex;
+    justify-content: space-around;
+}
+
+#temperatureMax {
+    margin-left: 20px;
+}
+
+.main #weather_other {
+    background-color:#7585df;
+}
+
+.add_container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.add_info {
+    display: flex;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: block;
+    background: 0 0 url("./img/humidity.png");
+    background-size: cover;
+}
+
+.icon_wind {
+    background: 0 0 url("./img/wind.png");
+    background-size: cover;
+}
+
+.icon_pressure {
+    background: 0 0 url("./img/pressure.png");
+    background-size: cover;
+}
