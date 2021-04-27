@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import UserSearch from './Components/UserSearch'
 import UserCard from './Components/UserCard'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import './App.css';
 
 function App() {
@@ -55,9 +54,6 @@ function App() {
         </div>
     </div> :
     <div className="App">
-      <Router>
-      <Switch>
-        <Route exact path="/">
           <body>
                <div className="search_header">Search of Github account</div>
                <div className="github_search">
@@ -78,10 +74,6 @@ function App() {
                 <button onClick={click} className="button_back">Back</button>
               </div> */}
             </body>
-        </Route>
-        <Route path='/lab9/build/error'/>
-      </Switch>
-      </Router>
     </div>
   );
 }
