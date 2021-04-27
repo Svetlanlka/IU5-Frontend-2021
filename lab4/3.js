@@ -25,4 +25,5 @@ function rle(str) {
     return new_arr.join('');
 }
 
+
 module.exports = rle;

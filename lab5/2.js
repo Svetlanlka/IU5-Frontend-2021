@@ -12,7 +12,7 @@
  * console.log(curry(add)(1)(2, 3)); //6
  * console.log(curry(add)(1, 2, 3)); //6
  */
- function curry(f) {
+function curry(f) {
     return (...args) => {
         if (f.length <= args.length) {
             return f(...args);

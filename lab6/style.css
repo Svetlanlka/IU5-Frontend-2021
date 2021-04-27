@@ -1,0 +1,80 @@
+body {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.rect {
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+    box-shadow: 0px 0px 1px 1px black inset;
+}
+
+.my-list {
+    background-color:blanchedalmond;
+    width: 130px;
+    height: 60px;
+    overflow-y:scroll;
+}
+
+.list-elem {
+    color:blueviolet;
+    background-color: beige;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.list-elem:hover {
+    color:brown;
+}
+
+.close-list {
+    display: none;
+}
+
+.list-header {
+    margin-top: 10px;
+    background-color: beige;
+    border-radius: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 130px;
+}
+
+.zona {
+    margin-top: 10px;
+    background-color: aqua;
+    width: 800px;
+    height: 800px;
+    border: 1px solid black;
+    position: relative;
+    box-shadow: 0px 0px 3px 3px blue inset;
+}
+
+.ball {
+    background-color: lightskyblue;
+    border: 1px solid blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ball-move {
+    border-color: darkblue;
+    background-color: aquamarine;
+}
+
+.timer {
+    margin-top: 10px;
+    width: 100px;
+    background-color: burlywood;
+    text-align: center;
+    padding: 10px 0px;
+    border: 3px solid brown;
+    box-shadow: 0px 0px 2px 2px #814500 inset;
+}

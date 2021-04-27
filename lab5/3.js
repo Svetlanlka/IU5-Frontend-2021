@@ -6,7 +6,7 @@
  * customBind(function() {this.a + this.b}, {a: 1, b2})() -> 3
  */
 
- function customBind(f, context) {
+function customBind(f, context) {
     return (...args) => f.apply(context, args); 
 }
 

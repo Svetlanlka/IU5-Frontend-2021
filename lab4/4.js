@@ -25,5 +25,4 @@ function get1DArray(arr, result = new Array()) {
     }
     return result;
 }
-
 module.exports = get1DArray;

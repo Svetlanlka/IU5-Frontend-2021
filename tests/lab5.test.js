@@ -62,7 +62,6 @@ test('memoize 6', () => {
     expect(memozedAdd(2)).toEqual({ cache: true, result: 4 });
 });
 
-
 // test('makeRoute', () => {
 //     expect(makeRoute([
 //         { from: 'L', to: 'M' },
@@ -79,4 +78,3 @@ test('memoize 6', () => {
 //             { from: "N", to: "Z" }
 //         ]
 //     );
-// });

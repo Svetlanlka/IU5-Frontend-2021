@@ -6,6 +6,7 @@
  * "мир" -> false
  * "тот" -> true
  */
+
 function isPalindrome(str) {
    var arr = str.split('');
    if (arr.length <= 1) return true;

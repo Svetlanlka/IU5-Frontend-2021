@@ -5,6 +5,7 @@
  * Примеры:
  * ['мир', 'Рим', 'сирота', 'Ариост', 'мри', 'пва', 'лор', 'авп']; -> [["мир", "Рим", "мри"], ["сирота", "Ариост"], ["пва", "авп"]]
  */
+
 function getAnagramms(arr) {
    var sort_arr = arr.map((el) => {
        return el.toLowerCase().split('').sort().join('');
