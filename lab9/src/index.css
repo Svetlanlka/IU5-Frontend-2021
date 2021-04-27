@@ -1,13 +1,80 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.search_header {
+  color: darkgoldenrod;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 0px 1px yellow;
+}
+
+.github_search {
+  color: darkred;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.search_field {
+  background-color: gold;
+  border: 2px solid darkgoldenrod;
+  padding: 5px;
+}
+
+.search_button {
+  padding: 5px;
+  border: 2px solid darkgoldenrod;
+  margin-left: 5px;
+  box-shadow: 0 0 2px 2px gold;
+}
+
+.search_button:hover {
+  box-shadow: none;
+}
+
+.user_photo {
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid darkgoldenrod;
+}
+
+.user_description {
+ color: gold;
+}
+.user_profile {
+  font-size: larger;
+  margin-top: 10px;
+}
+
+.user_bio {
+  display: flex;
+  justify-content: center;
+
+}
+
+.user_not_found {
+  color: darkgoldenrod;
+  display: flex;
+  justify-content: center;
+}
+
+.button_back_container {
+  display: flex;
+  justify-content: center;
+}
+
+.button_back {
+  margin-top: 10px;
+  padding: 10px 30px;
+  color: black;
+  background-color: white;
+  border: 2px solid gold;
+  box-shadow: 0 0 2px 2px goldenrod inset;
 }
